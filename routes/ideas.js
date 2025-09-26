@@ -94,7 +94,7 @@ router.put('/:id', (req, res)=>{
 })
 
 
-router.delete('./:id', (req,res)=>{
+router.delete('/:id', (req,res)=>{
     const idea =  ideas.find(idea=>idea.id === +req.params.id)
 
     if (!idea) {
@@ -106,7 +106,14 @@ router.delete('./:id', (req,res)=>{
         )
     }
 
-    ideas.filter(idea=>idea.id !== +req.params.id)
+    const newIdeas = ideas.filter(idea=>idea.id !== +req.params.id)
+
+    res.json({
+        sucess: true,
+        data : newIdeas
+    })
+    
+    
 })
 
 module.exports = router
