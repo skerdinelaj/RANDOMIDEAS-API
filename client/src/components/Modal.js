@@ -8,6 +8,7 @@ class Modal {
     addEventListeners() {
         this._modalBtn.addEventListener("click", this.open)
         window.addEventListener('click', this.outsideClick)
+        document.addEventListener('closeModal', this.close)
     }
 
     open = ()=>{
